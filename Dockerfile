@@ -1,4 +1,4 @@
-FROM debian:9.11
+FROM debian:stretch-20210816
 
 ENV DEBIAN_FRONTEND noninteractive
 
