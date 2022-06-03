@@ -1,4 +1,4 @@
-FROM debian:11.2
+FROM debian:11.3
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -18,5 +18,10 @@ ServerName localhost \
 EXPOSE 80 443
 
 RUN rm -f /run/apache2/apache2.pid
+
+RUN apt update && \
+    apt upgrade -y --no-install-recommends && \
+    apt autoclean -y && \
+    apt autoremove -y
 
 CMD apachectl  -DFOREGROUND -e info
